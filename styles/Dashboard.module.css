@@ -1,7 +1,7 @@
 .dashboardContainer {
     height: 93vh;
     width: 100%;
-
+    background-color: rgba(32, 32, 33, 255);
 }
 
 
@@ -11,7 +11,7 @@
     margin: 7vh 0 0 0;
     height: 93vh;
     width: 100%;
-    background-color: white;
+    background-color: rgba(32, 32, 33, 255);
     justify-content: left;
 }
 
@@ -19,7 +19,7 @@
     margin: 5vh 0 0 3vh;
     width: 75%;
     height: 90%;
-    background-color: #E0E0E0;
+    background-color: #2c2c2cbc;
 }
 
 .sideSection {
@@ -37,7 +37,7 @@
     height: 47%;
     margin: auto;
     width: 90%;
-    background-color: #D9D9D9;
+    background-color: #2c2c2cbc;
 }
 
 .space {

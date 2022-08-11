@@ -7,7 +7,7 @@ export default function project({ project }) {
 }
 
 export const getServerSideProps = async (context) => {
-    const res = await fetch(`api/projects/${context.params.id}`);
+    const res = await fetch(`api/projects/${context.params.contractAddress}`);
     const project = await res.json();
 
     return ({

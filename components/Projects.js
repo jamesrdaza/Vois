@@ -1,14 +1,14 @@
-import Project from "./Project";
+import ProjectCard from "./ProjectCard";
 
 function Projects({ projects }) {
     return (
-        <div>
+        <>
             {
                 projects.map((project) => (
-                    <Project project={project} />
+                    <ProjectCard project={project} />
                 ))
             }
-        </div>
+        </>
     );
 }
 

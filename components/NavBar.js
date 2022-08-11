@@ -5,7 +5,7 @@ function NavBar() {
     return (
         <div className={styles.navBar}>
             <div className={styles.logo}>
-                <img style={{ height: "75%", width: "auto", marginLeft: "14%" }} src="./vercel.svg" alt="vercel" />
+                <span style={{ height: "75%", width: "auto", marginLeft: "14%", fontSize: "2rem", lineHeight: "2rem" }}  >Vois</span>
             </div>
             <Link href="/projects">Projects</Link>
             <Link href="/">Watchlists</Link>

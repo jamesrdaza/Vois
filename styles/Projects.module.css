@@ -1,7 +1,11 @@
-.pageContiner {
-    height: 93vh;
+.pageContainer {
+    height: 89vh;
     width: 100%;
+    margin-top: 11vh;
+    background-color: rgba(32, 32, 33, 255);
 }
+
+
 
 .banner {
     border: 1px solid black;
@@ -9,4 +13,38 @@
 
 .address {
     font-size: 2rem;
+}
+
+.projectsContainer {
+    display: flex;
+    flex-wrap: wrap;
+    height: 100%;
+    width: 80%;
+    margin: auto;
+
+    justify-content: left;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+    height: 20vh;
+    width: 15vw;
+    background-color: #2c2c2cbc;
+    box-shadow: 0 3px 10px rgb(0 0 0 / 0.5);
+    cursor: pointer;
+}
+
+
+.cardPicture {
+    height: 70%;
+    width: 100%;
+    margin: 0;
+    border-bottom: 0.5px solid rgba(0, 0, 0, 0.296);
+}
+
+.projectName {
+    font-size: 0.9rem;
+    font-weight: 400;
+    margin-left: 0.5rem;
 }

@@ -1,9 +1,14 @@
 import Projects from "../components/Projects";
+import styles from "../styles/Projects.module.css"
+import NavBar from "../components/NavBar"
 
 export default function projects({ projects }) {
     return (
-        <div className="pageContainer">
-            <Projects projects={projects} />
+        <div className={styles.pageContainer}>
+            <NavBar />
+            <div className={styles.projectsContainer}>
+                <Projects projects={projects} />
+            </div>
         </div >
     );
 }

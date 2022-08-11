@@ -4,8 +4,9 @@
     position: absolute;
     top: 0;
     width: 100%;
-    background-color: #D9D9D9;
+    background-color: #2c2c2cbc;
     align-items: center;
+    border-bottom: 1px solid black;
 }
 
 .logo {
@@ -20,10 +21,10 @@
     height: 100%;
     margin: 0 0 0 5px;
     line-height: 1.9rem;
-    background-color: #D9D9D9;
-    color: black;
+    background-color: #2c2c2c00;
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 400;
+    line-height: 2.5rem;
 }
 
 .pfp {

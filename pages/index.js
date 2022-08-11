@@ -102,19 +102,23 @@ export default function home() {
       </Head>
 
       <main className={styles.main}>
-        <h1 className={styles.title}>
-          Vois
-        </h1>
-        <div className={styles.buttonContainer} >
-          {!isConnected && <button className={styles.button} onClick={connectWallet}>Connect</button>}
-          {isConnected && <button className={styles.button} onClick={verifyWallet}>Sign In</button>}
+        <div className={styles.left}>
+          <h3 className={styles.title}>
+            Vois
+          </h3>
+          <h3 className={styles.subTitle}>A community driven NFT-oriented social media platform </h3>
+        </div>
+        <div className={styles.right}>
+          <div className={styles.buttonContainer} >
+            {!isConnected && <button className={styles.button} onClick={connectWallet}>Connect</button>}
+            {isConnected && <button className={styles.button} onClick={verifyWallet}>Sign In</button>}
+          </div>
         </div>
 
 
-      </main>
 
-      <footer className={styles.footer}>
-      </footer>
+
+      </main>
     </div>
   )
 }
