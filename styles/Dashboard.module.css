@@ -4,50 +4,7 @@
 
 }
 
-.navBar {
-    display: flex;
-    height: 7vh;
-    position: absolute;
-    top: 0;
-    width: 100%;
-    background-color: #D9D9D9;
-    align-items: center;
-}
 
-.logo {
-    display: flex;
-    align-items: center;
-    height: 100%;
-    width: auto;
-    margin-right: 5%;
-}
-
-.navBar a {
-    height: 100%;
-    margin: 0 0 0 5px;
-    line-height: 1.9rem;
-    background-color: #D9D9D9;
-    color: black;
-    font-size: 0.7rem;
-    font-weight: 500;
-}
-
-.pfp {
-    display: flex;
-    justify-content: right;
-    text-align: right;
-    width: 70%;
-    height: 75%;
-}
-
-.pfp img {
-    border: 1px solid black;
-    height: 2.75vw;
-    width: 2.75vw;
-    border-radius: 70%;
-    overflow: hidden;
-    margin-right: 2%;
-}
 
 .mainContent {
     display: flex;

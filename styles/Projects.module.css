@@ -1,0 +1,12 @@
+.pageContiner {
+    height: 93vh;
+    width: 100%;
+}
+
+.banner {
+    border: 1px solid black;
+}
+
+.address {
+    font-size: 2rem;
+}

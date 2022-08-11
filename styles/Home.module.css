@@ -118,24 +118,15 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
 
-  .card,
-  .footer {
-    border-color: #222;
-  }
-
-  .code {
-    background: #111;
-  }
-
-  .logo img {
-    filter: invert(1);
-  }
-}
 
 .buttonContainer {
   display: flex;
   justify-content: center;
   width: 100%;
+}
+
+.button {
+  padding: 1%;
+  width: 25%;
 }

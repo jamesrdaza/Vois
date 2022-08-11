@@ -7,36 +7,35 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model Token {
-  userId String @id @default(uuid()) @map("user_id")
-  secret String
-}
-
 model Session {
   id           String   @id @default(uuid())
   sessionToken String   @unique @default(uuid()) @map("session_token")
-  userId       String   @map("user_id")
-  expiresAt    DateTime
-  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  address      String   @unique
+  expiresAt    DateTime @map(name: "expires_at")
+  user         User     @relation(fields: [address], references: [address], onDelete: Cascade)
 
   @@map("sessions")
 }
 
 model User {
-  id           String    @id @default(uuid())
-  address      String    @unique
-  ens          String?
-  createdAt    DateTime  @default(now()) @map(name: "created_at")
-  clientSecret String
-  posts        Post[]
-  sessions     Session[]
+  id        String    @id @default(uuid())
+  address   String    @unique
+  ens       String?
+  createdAt DateTime  @default(now()) @map(name: "created_at")
+  posts     Post[]
+  sessions  Session[]
 
   @@map(name: "users")
 }
 
 model Project {
   id              String @id @default(uuid())
-  contractAddress String @unique
+  projectName     String @map(name: "project_name")
+  description     String @default("")
+  contractAddress String @unique @map(name: "contract_address")
+  ownerAddress    String @unique @map(name: "owner_address")
+  likes           Int    @default(0)
+  dislikes        Int    @default(0)
   posts           Post[]
 
   @@map(name: "projects")
