@@ -6,7 +6,6 @@ export default function project({ project }) {
         <>
             <Project project={project} />
         </>
-
     );
 }
 

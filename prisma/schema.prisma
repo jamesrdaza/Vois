@@ -29,13 +29,15 @@ model User {
 }
 
 model Project {
-  id              String @id @default(uuid())
-  projectName     String @map(name: "project_name")
-  description     String @default("")
-  contractAddress String @unique @map(name: "contract_address")
-  ownerAddress    String @unique @map(name: "owner_address")
-  likes           Int    @default(0)
-  dislikes        Int    @default(0)
+  id              String  @id @default(uuid())
+  projectName     String  @map(name: "project_name")
+  description     String  @default("")
+  contractAddress String  @unique @map(name: "contract_address")
+  ownerAddress    String  @unique @map(name: "owner_address")
+  likes           Int     @default(0)
+  dislikes        Int     @default(0)
+  imageUrl        String? @default("") @map(name: "image_url")
+  bannerUrl       String? @default("") @map(name: "banner_url")
   posts           Post[]
 
   @@map(name: "projects")

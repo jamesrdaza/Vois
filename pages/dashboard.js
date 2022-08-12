@@ -1,10 +1,7 @@
-import Projects from "../components/Projects";
-import Notification from "../components/Notification";
-import TopDay from "../components/TopDay";
 import styles from "../styles/Dashboard.module.css";
 import NavBar from "../components/NavBar";
 
-function Dashboard({ projects, notifications, topDay }) {
+function Dashboard({ posts, notifications, topDay }) {
     return (
         <div className={styles.dashboardContainer}>
             <NavBar />
