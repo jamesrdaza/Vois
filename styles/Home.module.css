@@ -148,13 +148,14 @@
 }
 
 .button {
-  background-color: #A9CEC2;
-  color: black;
+  background-color: #028a68b4;
+  color: white;
   padding: 3%;
   width: 25%;
   border: none;
   cursor: pointer;
-  border: 1px solid black
+  border: 1px solid black;
+  font-size: 1.2rem;
 }
 
 .button:focus {

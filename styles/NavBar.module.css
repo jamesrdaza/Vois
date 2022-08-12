@@ -6,7 +6,7 @@
     width: 100%;
     background-color: #2c2c2cbc;
     align-items: center;
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid #028a68b4;
 }
 
 .logo {
@@ -14,8 +14,11 @@
     align-items: center;
     height: 100%;
     width: auto;
+    margin-left: 2%;
     margin-right: 5%;
+    font-size: 2rem;
 }
+
 
 .navBar a {
     height: 100%;
@@ -23,8 +26,13 @@
     line-height: 1.9rem;
     background-color: #2c2c2c00;
     font-size: 1.2rem;
-    font-weight: 400;
-    line-height: 2.5rem;
+    font-weight: 300;
+    line-height: 3.5rem;
+    margin: 1%;
+}
+
+.navBar .logo a {
+    font-size: 2rem;
 }
 
 .pfp {
@@ -35,11 +43,20 @@
     height: 75%;
 }
 
-.pfp img {
-    border: 1px solid black;
+.imgWrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #028a68b4;
     height: 2.75vw;
     width: 2.75vw;
     border-radius: 70%;
     overflow: hidden;
     margin-right: 2%;
+}
+
+.pfp img {
+    margin: auto;
+    height: 90%;
+    width: 80%;
 }
