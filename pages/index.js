@@ -1,15 +1,20 @@
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 import { useEffect, useState } from 'react';
-import { useRouter } from 'next/router';
+import { getCsrfToken, signIn, useSession } from 'next-auth/react'
+import { SiweMessage } from 'siwe'
+import { useAccount, useConnect, useNetwork, useSignMessage } from 'wagmi'
+import { MetaMaskConnector } from 'wagmi/connectors/metaMask'
 
 export default function home() {
-  const router = useRouter();
-
-  // Need to make this generated on backend or keep track of nonce
-  const messageToSign = "In order to verify please sign this message";
-  const [isConnected, setIsConnected] = useState(false);
+  const [isConnected, setIsConnected] = useState(false)
+  const { signMessageAsync } = useSignMessage()
   const [mmValid, setMmValid] = useState(false);
+  const { address } = useAccount()
+  const { connectors, connect } = useConnect(
+    { connector: new MetaMaskConnector() }
+  )
+
   useEffect(() => {
     //Check for Metamask
     if (window.ethereum === undefined) {
@@ -17,83 +22,40 @@ export default function home() {
     } else {
       setMmValid(true);
 
-      // If already connected set flag
       if (window.ethereum.selectedAddress) {
-        setIsConnected(true);
+        setIsConnected(true)
+      } else {
+        setIsConnected(false)
       }
     }
+
   }, [])
 
-  // Connect wallet to MetaMask
-  const connectWallet = async () => {
-    if (mmValid) {
-      window.ethereum.request({
-        method: "eth_requestAccounts"
+
+  const handleLogin = async () => {
+    try {
+      const callbackUrl = "/dashboard";
+      const message = new SiweMessage({
+        domain: window.location.host,
+        address: address,
+        statement: "In order to verify please sign this message",
+        uri: window.location.origin,
+        version: '1',
+        chainId: 1,
+        nonce: await getCsrfToken()
       });
-    } else {
-      "Please Install Metamask"
+      const signature = await signMessageAsync({ message: message.prepareMessage() });
+      signIn('credentials', { message: JSON.stringify(message), signature: signature, callbackUrl: callbackUrl });
+    } catch (error) {
+      window.alert(error)
     }
   }
 
-  const checkStoreValid = (storeItem) => {
-    // Return true or false is token is valid or not
-    if (storeItem && storeItem !== "undefined") {
-      return true;
-    } else {
-      return false;
-    }
+  const connectWallet = () => {
+    connect(connectors[0])
   }
-  const verifyWallet = async () => {
-    //Check if token exists and valid
-    let token = window.localStorage.getItem("sessionToken");
-    let tokenValid = checkStoreValid(token);
 
-    // Check if time exists and is valid then set time to compare
-    let expireDate = window.localStorage.getItem("expiresAt");
-    let expireDateValid = checkStoreValid(expireDate);
-    let expireTime = expireDateValid ? new Date(expireDate) : 0;
-
-    // Auto-sign in if session token in browser is valid
-    if (tokenValid && expireDateValid && (Date.now() < expireTime)) {
-      router.push("/dashboard");
-    } else if (isConnected) { // If already connected just ask for signature
-      try {
-
-        // Request to sign message
-        let signedMessage = await window.ethereum.request({
-          method: "personal_sign",
-          params: [window.ethereum.selectedAddress, messageToSign]
-        })
-
-        // Send request to server
-        let payload = { address: window.ethereum.selectedAddress, signedMessage: signedMessage }
-        fetch("api/authenticate", {
-          method: "POST",
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(payload)
-        })
-          .then((res) => {
-            res.json().then((data) => {
-              if (checkStoreValid(data.sessionToken) && checkStoreValid(data.expiresAt)) {
-                window.localStorage.setItem("sessionToken", data.sessionToken);
-                window.localStorage.setItem("expiresAt", data.expiresAt);
-                router.push("/dashboard");
-              } else {
-                throw "Authentication Error";
-              }
-            })
-          })
-          .catch((err) => {
-            console.error(err);
-          })
-      } catch (err) {
-        alert(err.message);
-      }
-
-    }
-  }
   return (
-
     <div className={styles.container}>
       <Head>
         <title>Vois</title>
@@ -111,13 +73,9 @@ export default function home() {
         <div className={styles.right}>
           <div className={styles.buttonContainer} >
             {!isConnected && <button className={styles.button} onClick={connectWallet}>Connect</button>}
-            {isConnected && <button className={styles.button} onClick={verifyWallet}>Sign In</button>}
+            {isConnected && <button className={styles.button} onClick={handleLogin}>Sign In</button>}
           </div>
         </div>
-
-
-
-
       </main>
     </div>
   )

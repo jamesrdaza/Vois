@@ -1,9 +1,13 @@
 import styles from "../../styles/ProjectStyles/Project.module.css"
+import Link from "next/link";
 
 function Project({ project }) {
     return (
         <div className="pageContainer">
             <div className={styles.banner}>
+                <div className={styles.header}>
+                    <Link className={styles.button} href="/dashboard">Vois</Link>
+                </div>
                 <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={project.bannerUrl} alt="banner" />
             </div>
             <div className={styles.mainSection}>
