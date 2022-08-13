@@ -11,13 +11,14 @@ function NavBar({ address }) {
             <Link href="/projects">Projects</Link>
             <Link href="/">Watchlists</Link>
             <div className={styles.pfp}>
-                <p style={{ marginRight: "1%" }}>{address.length > 0 ? (address.substring(0, 4) + "..." + address.substring(address.length - 4, address.length)) : ""}</p>
+                <p style={{ marginRight: "1%", position: "absolute", marginRight: "7%" }}>{address.length > 0 ? (address.substring(0, 4) + "..." + address.substring(address.length - 4, address.length)) : ""}</p>
                 <div className={styles.imgWrapper}>
                     <img src="./person.png" alt="person" />
                 </div>
+                <Menu />
 
             </div>
-            <Menu />
+
         </div>
     );
 }

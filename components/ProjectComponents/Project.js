@@ -8,7 +8,7 @@ function Project({ project }) {
                 <div className={styles.header}>
                     <Link className={styles.button} href="/dashboard">Vois</Link>
                 </div>
-                <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={project.bannerUrl} alt="banner" />
+                <img style={{ maxHeight: "17.5vh", maxWidth: "50%" }} src={project.bannerUrl} alt="banner" />
             </div>
             <div className={styles.mainSection}>
                 <div className={styles.mainContent}>

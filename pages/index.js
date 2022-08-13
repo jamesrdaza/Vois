@@ -53,6 +53,7 @@ export default function home() {
 
   const connectWallet = () => {
     connect(connectors[0])
+
   }
 
   return (
