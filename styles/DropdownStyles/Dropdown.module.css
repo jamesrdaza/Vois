@@ -1,0 +1,68 @@
+.menuContainer {
+    display: flex;
+    position: absolute;
+    flex-direction: column;
+
+    height: 2vh;
+    width: 2vh;
+    /* top: 0; */
+    background-color: green;
+    z-index: 3;
+
+}
+
+.menuContainer:focus {
+    height: auto;
+    width: 10vw;
+    animation: open 0.2s linear;
+    animation-fill-mode: both;
+
+}
+
+
+
+.option {
+
+    height: 0;
+    width: 10vw;
+    /*  opacity: 0; */
+
+    z-index: 6;
+    margin: auto;
+}
+
+.menuContainer:focus .option {
+    height: 2vh;
+    animation: openOption 0.1s linear;
+    animation-fill-mode: both;
+}
+
+/* .menuContainer:focus .option {
+    animation: open 0.2s linear;
+} */
+
+@keyframes open {
+    from {
+        transform: translateY(60%);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(63%);
+        opacity: 1;
+    }
+}
+
+
+@keyframes openOption {
+    from {
+        min-height: 0vh;
+        opacity: 0;
+    }
+
+    to {
+        min-height: 5vh;
+        border-bottom: 1px solid black;
+        opacity: 1;
+    }
+}

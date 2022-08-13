@@ -1,5 +1,6 @@
 import styles from "../styles/NavBar.module.css"
 import Link from "next/dist/client/link";
+import Menu from "./Dropdown/Menu"
 
 function NavBar({ address }) {
     return (
@@ -16,6 +17,7 @@ function NavBar({ address }) {
                 </div>
 
             </div>
+            <Menu />
         </div>
     );
 }
