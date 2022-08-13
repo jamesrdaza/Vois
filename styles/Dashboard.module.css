@@ -44,3 +44,12 @@
     width: 100%;
     height: 4.5%;
 }
+
+.header {
+    height: 2.5vh;
+    line-height: 2.5vh;
+    width: 100%;
+    position: sticky;
+    border-bottom: 1px solid black;
+    background-color: #028a68b4;
+}
