@@ -8,7 +8,7 @@ function Menu() {
             <div className={styles.menuContainer} tabIndex="1" >
                 <Link className={styles.option} href="/">Profile</Link>
                 <Link className={styles.option} href="/">Settings</Link>
-
+                <Link className={styles.option} href="/">Sign In/Out</Link>
                 {/*  <div className={styles.option}>
 
                 </div>

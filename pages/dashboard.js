@@ -1,24 +1,42 @@
 import styles from "../styles/Dashboard.module.css";
 import NavBar from "../components/NavBar";
+import TrendingList from "../components/Trending/TrendingList";
 import { useSession } from "next-auth/react";
 import { useEffect } from "react";
 
+const trendingTest = [
+    { name: "TEST1" },
+    { name: "TEST2" },
+    { name: "TEST3" },
+    { name: "TEST1" },
+    { name: "TEST2" },
+    { name: "TEST3" },
+    { name: "TEST1" },
+    { name: "TEST2" },
+    { name: "TEST3" },
+    { name: "TEST1" },
+    { name: "TEST2" },
+    { name: "TEST3" },
+    { name: "TEST1" },
+    { name: "TEST2" },
+    { name: "TEST3" },
+]
+
 function Dashboard({ posts, notifications, topDay }) {
     const { data: session, status } = useSession()
-    useEffect(() => {
-        console.log(status)
-
-    })
+    /*     useEffect(() => {
+            console.log(status)
+    
+        }) */
     return (
         <div className={styles.dashboardContainer}>
-            {/* {session.user.address} */}
             <NavBar address={status == "authenticated" ? session.userData.address : ""} />
-            <div className={styles.mainContent}>
-                <div className={styles.mainSection}>
+            <div className={styles.mainContent} >
+                <div style={{ overflowX: "hidden", overflowY: "auto" }} className={styles.mainSection}>
                     <div className={styles.header}>
                         Trending Posts
                     </div>
-
+                    <TrendingList trendingItems={trendingTest} />
                 </div>
                 <div className={styles.sideSection}>
                     <div className={styles.upcomingNotifications}>

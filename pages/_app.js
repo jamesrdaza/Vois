@@ -28,7 +28,6 @@ function MyApp({ Component, pageProps }) {
       </SessionProvider>
     </WagmiConfig>
   )
-
 }
 
 export default MyApp

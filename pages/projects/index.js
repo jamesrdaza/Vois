@@ -10,7 +10,10 @@ export default function projects({ projects }) {
         <div className={styles.pageContainer}>
             <NavBar address={status == "authenticated" ? session.userData.address : ""} />
             <div style={{ position: "relative" }}>
-                <FaRegPlusSquare style={{ position: "absolute", right: "4%", bottom: "2%", }} size={30} fill="#028a68b4" />
+                <div style={{ position: "absolute", left: "9%", bottom: "10%", display: "flex", alignItems: "center", marginBottom: "-0.6%", width: "70vw" }} >
+                    <FaRegPlusSquare fill="#028a68b4" size={30} />
+                    <p > Add Project</p>
+                </div>
             </div>
             <div className={styles.projectsContainer}>
 
@@ -24,7 +27,6 @@ export const getServerSideProps = async () => {
     const res = await fetch("http://localhost:3000/api/projects");
 
     const projects = await res.json();
-    /*     console.log(projects); */
     return ({
         props: {
             projects

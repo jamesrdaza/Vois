@@ -6,6 +6,7 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   background-color: rgba(32, 32, 33, 255);
   max-width: 100%;
+  min-height: 100vh;
   overflow-x: hidden;
 }
 
@@ -43,6 +44,7 @@ a {
 /* Handle */
 ::-webkit-scrollbar-thumb {
   background: #028a68b4;
+  border-radius: 50px;
 }
 
 /* Handle on hover */

@@ -3,7 +3,6 @@ import NextAuth from "next-auth"
 import CredentialsProvider from "next-auth/providers/credentials"
 import { getCsrfToken } from "next-auth/react"
 import { SiweMessage } from "siwe"
-import { PrismaAdapter } from '@next-auth/prisma-adapter';
 
 export default async function auth(req, res) {
     const providers = [
@@ -53,7 +52,7 @@ export default async function auth(req, res) {
 
                     return (userData);
                 } catch (e) {
-                    /*   console.err(e); */
+                    console.err(e);
                     return null
                 }
             },
@@ -89,7 +88,7 @@ export default async function auth(req, res) {
                 // Must pass through jwt first to pass to session
                 if (token.userData) {
                     session.userData = token.userData;
-                    console.log(session);
+                    /* console.log(session); */
                 }
                 return session
             },
