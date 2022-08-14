@@ -1,5 +1,16 @@
 import styles from "../../styles/ProjectStyles/Project.module.css"
+import ProjectPostList from "../ProjectPost/ProjectPostList";
 import Link from "next/link";
+
+const posts = [
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+]
 
 function Project({ project }) {
     return (
@@ -8,7 +19,12 @@ function Project({ project }) {
                 <div className={styles.header}>
                     <Link className={styles.button} href="/dashboard">Vois</Link>
                 </div>
-                <img style={{ maxHeight: "17.5vh", maxWidth: "50%" }} src={project.bannerUrl} alt="banner" />
+                <div className={styles.imgContainer}>
+                    <img style={{ minHeight: "17.5vh", maxWidth: "50%" }} src={project.bannerUrl} alt="banner" />
+                    <div className={styles.miscInfo}>
+
+                    </div>
+                </div>
             </div>
             <div className={styles.mainSection}>
                 <div className={styles.mainContent}>
@@ -16,11 +32,11 @@ function Project({ project }) {
                         <div className={styles.projectPicture}>
                             <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={project.imageUrl} alt="profile" />
                         </div>
-                        <div style={{ display: "flex", justifyContent: "space-between", flexDirection: "column" }} className={styles.description}>
-                            <div style={{ width: "100%", height: "auto" }} className={styles.name}>
+                        <div className={styles.description}>
+                            <div className={styles.projectName}>
                                 {project.projectName}
                             </div>
-                            <div style={{ width: "100%", verticalAlign: "bottom", height: "auto" }} >
+                            <div className={styles.descriptionText}>
                                 {project.description}
                             </div>
 
@@ -30,6 +46,7 @@ function Project({ project }) {
                         <div className={styles.header}>
                             Posts
                         </div>
+                        <ProjectPostList posts={posts} />
                     </div>
 
                 </div>

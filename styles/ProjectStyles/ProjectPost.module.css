@@ -1,0 +1,7 @@
+.postContainer {
+    display: block;
+    height: 30%;
+    width: 95%;
+    border-bottom: 1px solid black;
+    overflow-y: auto;
+}

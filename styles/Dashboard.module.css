@@ -1,3 +1,10 @@
+.mainSection,
+.upcomingNotifications,
+.topDay {
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
 .dashboardContainer {
     height: 93vh;
     width: 100%;
@@ -54,5 +61,5 @@
     position: sticky;
     top: 0;
     border-bottom: 1px solid black;
-    background-color: #028a68b4;
+    background-color: #028a68;
 }

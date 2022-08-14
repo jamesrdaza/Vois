@@ -5,7 +5,7 @@ function HotProject({ hotProject }) {
                 {/* {hotProject.image} */}
             </div>
             <div className={styles.projectName}>
-                {/* {hotProject.projectName} */}
+                {hotProject.projectName}
             </div>
             <div className={styles.likes}>
                 {/* {hotProject.likes} */}

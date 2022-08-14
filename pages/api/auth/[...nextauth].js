@@ -52,7 +52,7 @@ export default async function auth(req, res) {
 
                     return (userData);
                 } catch (e) {
-                    console.err(e);
+                    console.error(e);
                     return null
                 }
             },

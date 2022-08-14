@@ -1,8 +1,9 @@
 import styles from "../styles/Dashboard.module.css";
 import NavBar from "../components/NavBar";
 import TrendingList from "../components/Trending/TrendingList";
+import DashNotificationList from "../components/DashNotifications/DashNotificationList";
 import { useSession } from "next-auth/react";
-import { useEffect } from "react";
+
 
 const trendingTest = [
     { name: "TEST1" },
@@ -22,17 +23,36 @@ const trendingTest = [
     { name: "TEST3" },
 ]
 
-function Dashboard({ posts, notifications, topDay }) {
+const notifications = [
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" },
+    { title: "TEST TITLE" }
+]
+
+const HotProjects = [
+    { projectName: "TEST NAME" }
+]
+
+function Dashboard({ posts, topDay }) {
     const { data: session, status } = useSession()
-    /*     useEffect(() => {
-            console.log(status)
-    
-        }) */
     return (
         <div className={styles.dashboardContainer}>
             <NavBar address={status == "authenticated" ? session.userData.address : ""} />
             <div className={styles.mainContent} >
-                <div style={{ overflowX: "hidden", overflowY: "auto" }} className={styles.mainSection}>
+                <div className={styles.mainSection}>
                     <div className={styles.header}>
                         Trending Posts
                     </div>
@@ -43,11 +63,7 @@ function Dashboard({ posts, notifications, topDay }) {
                         <div className={styles.header}>
                             Notifications
                         </div>
-                        {/*                         {
-                            notifications.map((notification) => {
-                                <Notification data={notification.data} />
-                            })
-                        } */}
+                        <DashNotificationList notifications={notifications} />
                     </div>
                     <div className={styles.space}></div>
                     <div className={styles.topDay}>

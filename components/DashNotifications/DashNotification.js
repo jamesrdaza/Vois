@@ -1,8 +1,10 @@
+import styles from "../../styles/NotificationStyle/Notification.module.css"
+
 function DashNotification({ notification }) {
     return (
         <div className={styles.notificationContainer}>
-            <div className={title}>
-                {/* {notification.title} */}
+            <div className={styles.DashNotificationtitle}>
+                {notification.title}
             </div>
             <div className={styles.type}>
                 {/* {notification.type} */}
