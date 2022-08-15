@@ -1,4 +1,4 @@
-import styles from "../styles/NavBar.module.css"
+import styles from "../styles/NavBar.module.scss"
 import Link from "next/dist/client/link";
 import Menu from "./Dropdown/Menu"
 

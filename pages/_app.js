@@ -1,6 +1,6 @@
 import { SessionProvider } from "next-auth/react";
 import { WagmiConfig } from "wagmi"
-import '../styles/globals.css'
+import '../styles/globals.scss'
 import { configureChains, chain } from 'wagmi'
 import { publicProvider } from 'wagmi/providers/public'
 import {

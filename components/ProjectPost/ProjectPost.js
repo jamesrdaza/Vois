@@ -1,4 +1,4 @@
-import styles from "../../styles/ProjectStyles/ProjectPost.module.css"
+import styles from "../../styles/ProjectStyles/ProjectPost.module.scss"
 
 function ProjectPost({ post }) {
     return (

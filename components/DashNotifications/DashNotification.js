@@ -1,4 +1,4 @@
-import styles from "../../styles/NotificationStyle/Notification.module.css"
+import styles from "../../styles/NotificationStyle/Notification.module.scss"
 
 function DashNotification({ notification }) {
     return (

@@ -1,4 +1,4 @@
-import styles from "../../styles/TrendingStyles/TrendingItem.module.css"
+import styles from "../../styles/TrendingStyles/TrendingItem.module.scss"
 
 function TrendingItem({ item }) {
     return (

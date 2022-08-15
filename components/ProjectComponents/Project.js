@@ -1,4 +1,4 @@
-import styles from "../../styles/ProjectStyles/Project.module.css"
+import styles from "../../styles/ProjectStyles/Project.module.scss"
 import ProjectPostList from "../ProjectPost/ProjectPostList";
 import Link from "next/link";
 

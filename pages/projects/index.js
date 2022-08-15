@@ -1,5 +1,5 @@
 import Projects from "../../components/ProjectComponents/Projects";
-import styles from "../../styles/ProjectStyles/Projects.module.css"
+import styles from "../../styles/ProjectStyles/Projects.module.scss"
 import NavBar from "../../components/NavBar"
 import { FaRegPlusSquare } from "react-icons/fa"
 import { useSession } from "next-auth/react"

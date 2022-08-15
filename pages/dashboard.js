@@ -1,4 +1,4 @@
-import styles from "../styles/Dashboard.module.css";
+import styles from "../styles/Dashboard.module.scss";
 import NavBar from "../components/NavBar";
 import TrendingList from "../components/Trending/TrendingList";
 import DashNotificationList from "../components/DashNotifications/DashNotificationList";

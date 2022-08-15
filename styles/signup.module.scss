@@ -1,0 +1,62 @@
+.inputContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100%;
+    background-image: linear-gradient(45deg, #1E5162, skyblue);
+}
+
+.inputContainer h4 {
+    font-weight: 70;
+}
+
+.signup {
+    display: flex;
+    height: 42vh;
+    width: 25vw;
+    flex-direction: column;
+    justify-content: center;
+    padding: 3%;
+    padding-bottom: 5%;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.439);
+}
+
+.username,
+.password {
+    padding: 5%;
+    border: none;
+    background-color: rgb(222, 238, 249);
+
+}
+
+
+
+.submit {
+    margin-top: 5%;
+    display: flex;
+    justify-content: right;
+}
+
+.submit button {
+    font-size: 1vw;
+    border: none;
+    padding: 4%;
+    background-color: rgb(81, 81, 196);
+    color: white;
+    cursor: pointer;
+    font-weight: 10;
+    margin-top: 5%;
+    width: 100%;
+    transition: 0.5s;
+
+}
+
+.submit button:hover {
+
+    background-color: rgb(177, 177, 255);
+    color: black;
+
+}

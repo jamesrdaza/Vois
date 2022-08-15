@@ -19,6 +19,7 @@
     "react-dom": "18.2.0",
     "react-icons": "^4.4.0",
     "react-infinite-scroll-component": "^6.1.0",
+    "sass": "^1.54.4",
     "siwe": "^1.1.6",
     "wagmi": "^0.6.2"
   },

@@ -1,4 +1,4 @@
-import styles from "../../styles/ProjectStyles/ProjectCard.module.css"
+import styles from "../../styles/ProjectStyles/ProjectCard.module.scss"
 import Link from "next/dist/client/link";
 
 function ProjectCard({ project }) {

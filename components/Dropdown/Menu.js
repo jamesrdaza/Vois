@@ -1,5 +1,5 @@
 import { AiOutlineDownSquare } from "react-icons/ai"
-import styles from "../../styles/DropdownStyles/Dropdown.module.css"
+import styles from "../../styles/DropdownStyles/Dropdown.module.scss"
 import Link from "next/dist/client/link";
 function Menu() {
     return (
