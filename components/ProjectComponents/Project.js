@@ -1,5 +1,6 @@
 import styles from "../../styles/ProjectStyles/Project.module.scss"
 import ProjectPostList from "../ProjectPost/ProjectPostList";
+import Image from "next/image";
 import Link from "next/link";
 
 const posts = [
@@ -20,7 +21,7 @@ function Project({ project }) {
                     <Link className={styles.button} href="/dashboard">Vois</Link>
                 </div>
                 <div className={styles.imgContainer}>
-                    <img style={{ minHeight: "17.5vh", maxWidth: "50%" }} src={project.bannerUrl} alt="banner" />
+                    <Image style={{ minHeight: "17.5vh", maxWidth: "50%" }} src={project.bannerUrl} alt="banner" />
                     <div className={styles.miscInfo}>
 
                     </div>
@@ -30,7 +31,7 @@ function Project({ project }) {
                 <div className={styles.mainContent}>
                     <div className={styles.info}>
                         <div className={styles.projectPicture}>
-                            <img style={{ maxHeight: "100%", maxWidth: "100%" }} src={project.imageUrl} alt="profile" />
+                            <Image style={{ maxHeight: "100%", maxWidth: "100%" }} src={project.imageUrl} alt="profile" />
                         </div>
                         <div className={styles.description}>
                             <div className={styles.projectName}>

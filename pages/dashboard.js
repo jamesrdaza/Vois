@@ -4,6 +4,7 @@ import TrendingList from "../components/Trending/TrendingList";
 import DashNotificationList from "../components/DashNotifications/DashNotificationList";
 import { useSession } from "next-auth/react";
 
+// TEMP DATA 
 
 const trendingTest = [
     { name: "TEST1" },
@@ -43,14 +44,26 @@ const notifications = [
 ]
 
 const HotProjects = [
-    { projectName: "TEST NAME" }
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
+    { projectName: "TEST NAME" },
 ]
 
-function Dashboard({ posts, topDay }) {
+function Dashboard() {
     const { data: session, status } = useSession()
     return (
         <div className={styles.dashboardContainer}>
-            <NavBar address={status == "authenticated" ? session.userData.address : ""} />
+            <NavBar address={status == "authenticated" ? session.sessionInfo.address : ""} />
             <div className={styles.mainContent} >
                 <div className={styles.mainSection}>
                     <div className={styles.header}>
@@ -70,11 +83,6 @@ function Dashboard({ posts, topDay }) {
                         <div className={styles.header}>
                             Hot Projects
                         </div>
-                        {/*                         {
-                            topDay.map((top) => {
-                                <TopDay data={top.data} />
-                            })
-                        } */}
                     </div>
                 </div>
             </div>

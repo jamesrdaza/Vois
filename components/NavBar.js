@@ -1,6 +1,7 @@
 import styles from "../styles/NavBar.module.scss"
 import Link from "next/dist/client/link";
 import Menu from "./Dropdown/Menu"
+import Image from "next/image";
 
 function NavBar({ address }) {
     return (
@@ -13,7 +14,7 @@ function NavBar({ address }) {
             <div className={styles.pfp}>
                 <p style={{ marginRight: "1%", position: "absolute", marginRight: "7%" }}>{address.length > 0 ? (address.substring(0, 4) + "..." + address.substring(address.length - 4, address.length)) : ""}</p>
                 <div className={styles.imgWrapper}>
-                    <img src="./person.png" alt="person" />
+                    <Image src="./person.png" alt="person" />
                 </div>
                 <Menu />
 

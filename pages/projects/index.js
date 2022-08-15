@@ -1,10 +1,10 @@
-import Projects from "../../components/ProjectComponents/Projects";
+import ProjectList from "../../components/ProjectComponents/ProjectList";
 import styles from "../../styles/ProjectStyles/Projects.module.scss"
 import NavBar from "../../components/NavBar"
 import { FaRegPlusSquare } from "react-icons/fa"
 import { useSession } from "next-auth/react"
 
-export default function projects({ projects }) {
+export default function Projects({ projects }) {
     const { data: session, status } = useSession()
     return (
         <div className={styles.pageContainer}>
@@ -17,7 +17,7 @@ export default function projects({ projects }) {
             </div>
             <div className={styles.projectsContainer}>
 
-                <Projects projects={projects} />
+                <ProjectList projects={projects} />
             </div>
         </div >
     );

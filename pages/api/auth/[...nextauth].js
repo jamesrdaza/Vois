@@ -24,18 +24,24 @@ export default async function auth(req, res) {
                 try {
                     const siwe = new SiweMessage(JSON.parse(credentials?.message || "{}"))
 
+                    // Check if nextauth url exists
                     const nextAuthUrl = process.env.NEXTAUTH_URL;
                     if (!nextAuthUrl) {
                         return null
                     }
 
+                    // Check if domain is the same (From protocol)
                     const nextAuthHost = new URL(nextAuthUrl).host
                     if (siwe.domain !== nextAuthHost) {
                         return null
                     }
+
+                    // Check nonce (From Protocol)
                     if (siwe.nonce !== (await getCsrfToken({ req }))) {
                         return null
                     }
+
+                    // Check signature
                     await siwe.validate(credentials.signature || "");
 
                     //https://github.com/prisma/docs/issues/640
@@ -49,8 +55,12 @@ export default async function auth(req, res) {
                         },
                     })
                     /* console.log(userData); */
+                    const sessionInfo = {
+                        id: userData.id,
+                        address: userData.address
+                    };
 
-                    return (userData);
+                    return (sessionInfo);
                 } catch (e) {
                     console.error(e);
                     return null
@@ -80,14 +90,14 @@ export default async function auth(req, res) {
             async jwt({ token, user }) {
                 // Gets called multiple times so need to check if user exists
                 if (user) {
-                    token.userData = user;
+                    token.sessionInfo = user;
                 }
                 return token
             },
             async session({ session, token }) {
                 // Must pass through jwt first to pass to session
                 if (token.userData) {
-                    session.userData = token.userData;
+                    session.sessionInfo = token.sessionInfo;
                     /* console.log(session); */
                 }
                 return session

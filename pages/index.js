@@ -6,7 +6,7 @@ import { SiweMessage } from "siwe"
 import { useAccount, useConnect, useSignMessage } from "wagmi"
 import { MetaMaskConnector } from "wagmi/connectors/metaMask"
 
-export default function home() {
+export default function Home() {
   const [isConnected, setIsConnected] = useState(false)
   const { signMessageAsync } = useSignMessage()
   const [mmValid, setMmValid] = useState(false);
