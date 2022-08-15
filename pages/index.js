@@ -5,6 +5,7 @@ import { getCsrfToken, signIn, } from "next-auth/react"
 import { SiweMessage } from "siwe"
 import { useAccount, useConnect, useSignMessage } from "wagmi"
 import { MetaMaskConnector } from "wagmi/connectors/metaMask"
+import Link from "next/link";
 
 export default function Home() {
   const [isConnected, setIsConnected] = useState(false)
@@ -58,27 +59,31 @@ export default function Home() {
   }
 
   return (
-    <div className={styles.container}>
+    <div className={styles.homeGrid}>
       <Head>
         <title>Vois</title>
         <meta name="description" content="Vois" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <div className={styles.navBar} >
+        <div className={styles.navLinks}>
+          <Link href="/">Home</Link>
+          <Link href="/">About</Link>
+          <Link href="/">Contact</Link>
+        </div>
+        <div className={styles.rightNav}>
+          {!isConnected && <button className={styles.button} onClick={connectWallet}>Connect</button>}
+          {isConnected && <button className={styles.button} onClick={handleLogin}>Sign In</button>}
+        </div>
+      </div>
+      <div className={styles.homeSection}>
 
-      <main className={styles.main}>
-        <div className={styles.left}>
-          <h3 className={styles.title}>
-            Vois
-          </h3>
-          <h3 className={styles.subTitle}>A community driven NFT-oriented social media platform </h3>
-        </div>
-        <div className={styles.right}>
-          <div className={styles.buttonContainer} >
-            {!isConnected && <button className={styles.button} onClick={connectWallet}>Connect</button>}
-            {isConnected && <button className={styles.button} onClick={handleLogin}>Sign In</button>}
-          </div>
-        </div>
-      </main>
+      </div>
+      <h3 className={styles.title}>
+        Vois
+      </h3>
+      <h3 className={styles.subtitle}>A community driven NFT-oriented social media platform </h3>
+
     </div>
   )
 }

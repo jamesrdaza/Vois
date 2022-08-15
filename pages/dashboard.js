@@ -63,7 +63,7 @@ function Dashboard() {
     const { data: session, status } = useSession()
     return (
         <div className={styles.dashboardContainer}>
-            <NavBar address={status == "authenticated" ? session.sessionInfo.address : ""} />
+            <NavBar address={status === "authenticated" ? session.sessionInfo.address : ""} />
             <div className={styles.mainContent} >
                 <div className={styles.mainSection}>
                     <div className={styles.header}>

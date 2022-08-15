@@ -51,10 +51,9 @@ export default async function auth(req, res) {
                         },
                         update: {},
                         create: {
-                            address: siwe.address
+                            address: siwe.address,
                         },
                     })
-                    /* console.log(userData); */
                     const sessionInfo = {
                         id: userData.id,
                         address: userData.address
@@ -96,9 +95,8 @@ export default async function auth(req, res) {
             },
             async session({ session, token }) {
                 // Must pass through jwt first to pass to session
-                if (token.userData) {
+                if (token.sessionInfo) {
                     session.sessionInfo = token.sessionInfo;
-                    /* console.log(session); */
                 }
                 return session
             },
